@@ -1,0 +1,8 @@
+# IGNORE FILES IN ROOT/:
+.env
+
+# IGNORE FILES IN CONFIG/:
+config/*
+
+# DO NOT IGNORE FILES IN CONFIG/:
+!config/.gitkeep

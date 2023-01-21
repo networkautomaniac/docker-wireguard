@@ -1,0 +1,28 @@
+---
+version: "3.9"
+services:
+  wireguard:
+    image: linuxserver/wireguard:latest
+    container_name: wireguard
+    hostname: wireguard
+    ports:
+      - 51820:51820/udp
+    environment:
+      - PUID=${PUID}
+      - PGID=${PGID}
+      - TZ=America/Indiana/Indianapolis
+      - SERVERURL=${SERVERURL}
+      - SERVERPORT=${SERVERPORT}
+      - PEERS=${PEERS}
+      - PEERDNS=${PEERDNS}
+      - INTERNAL_SUBNET=${INTERNAL_SUBNET}
+      - ALLOWEDIPS=${ALLOWEDIPS}
+    cap_add:
+      - NET_ADMIN
+      - SYS_MODULE
+    sysctls:
+      - net.ipv4.conf.all.src_valid_mark=1
+    volumes:
+      - /lib/modules:/lib/modules
+      - ./config:/config
+    restart: unless-stopped
