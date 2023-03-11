@@ -10,7 +10,7 @@ services:
     environment:
       - PUID=${PUID}
       - PGID=${PGID}
-      - TZ=America/Indiana/Indianapolis
+      - TZ=${TZ}
       - SERVERURL=${SERVERURL}
       - SERVERPORT=${SERVERPORT}
       - PEERS=${PEERS}
