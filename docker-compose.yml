@@ -25,13 +25,4 @@ services:
     volumes:
       - /lib/modules:/lib/modules
       - ./config:/config
-    networks:
-      - wireguard
     restart: unless-stopped
-networks:
-  wireguard:
-    name: wireguard
-    ipam:
-      config:
-        - subnet: "172.16.4.0/24"
-          gateway: "172.16.4.1"
